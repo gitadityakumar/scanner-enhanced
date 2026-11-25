@@ -81,6 +81,20 @@ kotlin {
     jvmToolchain(17)
 }
 
+val releaseApkDir = layout.buildDirectory.dir("outputs/apk/release")
+tasks.configureEach {
+    if (name == "packageRelease") {
+        doLast {
+            val dir = releaseApkDir.get().asFile
+            val defaultApk = dir.resolve("app-release.apk")
+            val targetApk = dir.resolve("scanner.apk")
+            if (defaultApk.exists()) {
+                defaultApk.renameTo(targetApk)
+            }
+        }
+    }
+}
+
 dependencies {
   val composeBom = platform(libs.androidx.compose.bom)
   implementation(composeBom)
