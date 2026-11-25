@@ -25,6 +25,7 @@ import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.gestures.detectTransformGestures
@@ -356,8 +357,8 @@ fun ScannerScreen(
                 )
             }
 
-            // Xiaomi Viewfinder + Paytm Scan Animation Overlay
-            PaytmScanOverlay(
+            // Viewfinder + Scan Animation Overlay
+            ScanViewfinderOverlay(
                 captureState = captureState,
                 tapFocusPoint = tapFocusPoint,
             )
@@ -400,20 +401,22 @@ fun ScannerScreen(
             }
         }
 
-        // Top Bar: Flash (top-left) and More/Settings (top-right) — exact match to Xiaomi Scanner
+        // Top Bar: Flash (top-left) and More/Settings (top-right)
         Row(
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
                 .fillMaxWidth()
                 .statusBarsPadding()
-                .padding(horizontal = 10.dp, vertical = 6.dp),
+                .padding(horizontal = 14.dp, vertical = 10.dp),
         ) {
             Box(
                 contentAlignment = Alignment.Center,
                 modifier = Modifier
-                    .size(44.dp)
+                    .size(42.dp)
                     .clip(CircleShape)
+                    .background(Color.Black.copy(alpha = 0.28f))
+                    .border(0.6.dp, Color.White.copy(alpha = 0.14f), CircleShape)
                     .clickable(
                         interactionSource = remember { MutableInteractionSource() },
                         indication = null,
@@ -425,7 +428,7 @@ fun ScannerScreen(
                         if (torchEnabled) R.drawable.ic_xiaomi_flash_on else R.drawable.ic_xiaomi_flash_off,
                     ),
                     contentDescription = "Flash",
-                    modifier = Modifier.size(21.dp),
+                    modifier = Modifier.size(20.dp),
                 )
             }
 
@@ -437,14 +440,15 @@ fun ScannerScreen(
             ) {
                 Box(
                     modifier = Modifier
-                        .background(Color.Black.copy(alpha = 0.55f), RoundedCornerShape(14.dp))
-                        .padding(horizontal = 10.dp, vertical = 4.dp),
+                        .background(Color(0xCC121318), RoundedCornerShape(50))
+                        .border(0.8.dp, Color.White.copy(alpha = 0.14f), RoundedCornerShape(50))
+                        .padding(horizontal = 12.dp, vertical = 5.dp),
                 ) {
                     Text(
                         text = String.format("%.1fx", zoomRatio),
                         color = Color.White,
                         fontSize = 12.sp,
-                        fontWeight = FontWeight.Medium,
+                        fontWeight = FontWeight.SemiBold,
                     )
                 }
             }
@@ -452,8 +456,10 @@ fun ScannerScreen(
             Box(
                 contentAlignment = Alignment.Center,
                 modifier = Modifier
-                    .size(44.dp)
+                    .size(42.dp)
                     .clip(CircleShape)
+                    .background(Color.Black.copy(alpha = 0.28f))
+                    .border(0.6.dp, Color.White.copy(alpha = 0.14f), CircleShape)
                     .clickable(
                         interactionSource = remember { MutableInteractionSource() },
                         indication = null,
@@ -463,7 +469,7 @@ fun ScannerScreen(
                 Image(
                     painter = painterResource(R.drawable.ic_xiaomi_top_more),
                     contentDescription = "Settings",
-                    modifier = Modifier.size(22.dp),
+                    modifier = Modifier.size(20.dp),
                 )
             }
         }
@@ -483,10 +489,11 @@ fun ScannerScreen(
                     verticalAlignment = Alignment.CenterVertically,
                     modifier = Modifier
                         .fillMaxWidth()
-                        .clip(RoundedCornerShape(14.dp))
-                        .background(Color(0xE61C1C1E))
+                        .clip(RoundedCornerShape(16.dp))
+                        .background(Color(0xE614161C))
+                        .border(1.dp, Color.White.copy(alpha = 0.10f), RoundedCornerShape(16.dp))
                         .clickable { activeResult = bannerItem }
-                        .padding(horizontal = 14.dp, vertical = 10.dp),
+                        .padding(horizontal = 16.dp, vertical = 12.dp),
                 ) {
                     Column(modifier = Modifier.weight(1f)) {
                         Text(
