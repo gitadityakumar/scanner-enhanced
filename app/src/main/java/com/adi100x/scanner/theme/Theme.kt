@@ -1,4 +1,4 @@
-package com.example.scanner.theme
+package com.adi100x.scanner.theme
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme

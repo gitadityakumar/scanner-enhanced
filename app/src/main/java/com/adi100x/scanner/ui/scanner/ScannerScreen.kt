@@ -1,4 +1,4 @@
-package com.example.scanner.ui.scanner
+package com.adi100x.scanner.ui.scanner
 
 import android.Manifest
 import android.content.pm.PackageManager
@@ -77,16 +77,16 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.compose.LocalLifecycleOwner
-import com.example.scanner.R
-import com.example.scanner.scanner.BarcodeAnalyzer
-import com.example.scanner.scanner.DetectedBarcode
-import com.example.scanner.scanner.GalleryDecoder
-import com.example.scanner.scanner.ParsedScanResult
-import com.example.scanner.scanner.ScanContentType
-import com.example.scanner.scanner.ScannerPreferences
-import com.example.scanner.scanner.SoundFeedback
-import com.example.scanner.theme.PaytmCyan
-import com.example.scanner.theme.XiaomiBlue
+import com.adi100x.scanner.R
+import com.adi100x.scanner.scanner.BarcodeAnalyzer
+import com.adi100x.scanner.scanner.DetectedBarcode
+import com.adi100x.scanner.scanner.GalleryDecoder
+import com.adi100x.scanner.scanner.ParsedScanResult
+import com.adi100x.scanner.scanner.ScanContentType
+import com.adi100x.scanner.scanner.ScannerPreferences
+import com.adi100x.scanner.scanner.SoundFeedback
+import com.adi100x.scanner.theme.PaytmCyan
+import com.adi100x.scanner.theme.XiaomiBlue
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.util.concurrent.Executors

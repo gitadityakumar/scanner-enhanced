@@ -1,4 +1,4 @@
-package com.example.scanner.ui.history
+package com.adi100x.scanner.ui.history
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -43,15 +43,15 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.scanner.scanner.ParsedScanResult
-import com.example.scanner.scanner.ScanContentType
-import com.example.scanner.scanner.ScannerPreferences
-import com.example.scanner.theme.MiuiCardDark
-import com.example.scanner.theme.PaytmCyan
-import com.example.scanner.theme.PureBlack
-import com.example.scanner.theme.TextSecondary
-import com.example.scanner.theme.XiaomiBlue
-import com.example.scanner.ui.scanner.ScanResultSheet
+import com.adi100x.scanner.scanner.ParsedScanResult
+import com.adi100x.scanner.scanner.ScanContentType
+import com.adi100x.scanner.scanner.ScannerPreferences
+import com.adi100x.scanner.theme.MiuiCardDark
+import com.adi100x.scanner.theme.PaytmCyan
+import com.adi100x.scanner.theme.PureBlack
+import com.adi100x.scanner.theme.TextSecondary
+import com.adi100x.scanner.theme.XiaomiBlue
+import com.adi100x.scanner.ui.scanner.ScanResultSheet
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale

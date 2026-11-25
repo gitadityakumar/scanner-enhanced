@@ -1,4 +1,4 @@
-package com.example.scanner.scanner
+package com.adi100x.scanner.scanner
 
 import android.content.Context
 import android.graphics.Bitmap

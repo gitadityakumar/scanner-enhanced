@@ -1,4 +1,4 @@
-package com.example.scanner.ui.settings
+package com.adi100x.scanner.ui.settings
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -44,13 +44,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.scanner.R
-import com.example.scanner.scanner.ScannerPreferences
-import com.example.scanner.theme.MiuiCardDark
-import com.example.scanner.theme.MiuiDivider
-import com.example.scanner.theme.PureBlack
-import com.example.scanner.theme.TextSecondary
-import com.example.scanner.theme.XiaomiBlue
+import com.adi100x.scanner.R
+import com.adi100x.scanner.scanner.ScannerPreferences
+import com.adi100x.scanner.theme.MiuiCardDark
+import com.adi100x.scanner.theme.MiuiDivider
+import com.adi100x.scanner.theme.PureBlack
+import com.adi100x.scanner.theme.TextSecondary
+import com.adi100x.scanner.theme.XiaomiBlue
 
 @Composable
 fun SettingsScreen(

@@ -1,4 +1,4 @@
-package com.example.scanner
+package com.adi100x.scanner
 
 import android.graphics.Color
 import android.os.Bundle
@@ -9,8 +9,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import com.example.scanner.theme.MyApplicationTheme
-import com.example.scanner.theme.PureBlack
+import com.adi100x.scanner.theme.MyApplicationTheme
+import com.adi100x.scanner.theme.PureBlack
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

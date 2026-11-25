@@ -53,7 +53,7 @@ cd scanner-enhanced
 
 # Install and launch on connected device
 ./gradlew installDebug
-adb shell am start -n com.scanner.enhanced/com.example.scanner.MainActivity
+adb shell am start -n com.scanner.enhanced/com.adi100x.scanner.MainActivity
 ```
 
 ### Release Signing Setup

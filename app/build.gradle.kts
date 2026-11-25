@@ -28,7 +28,7 @@ val hasReleaseSigning = !releaseStorePath.isNullOrBlank() &&
     file(releaseStorePath).exists()
 
 android {
-    namespace = "com.example.scanner"
+    namespace = "com.adi100x.scanner"
     compileSdk = 36
     defaultConfig {
         applicationId = "com.scanner.enhanced"

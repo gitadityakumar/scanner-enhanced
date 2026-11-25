@@ -1,7 +1,7 @@
-package com.example.scanner
+package com.adi100x.scanner
 
-import com.example.scanner.scanner.QrPayloadParser
-import com.example.scanner.scanner.ScanContentType
+import com.adi100x.scanner.scanner.QrPayloadParser
+import com.adi100x.scanner.scanner.ScanContentType
 import com.google.mlkit.vision.barcode.common.Barcode
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull

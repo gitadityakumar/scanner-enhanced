@@ -1,4 +1,4 @@
-package com.example.scanner
+package com.adi100x.scanner
 
 import androidx.navigation3.runtime.NavKey
 import kotlinx.serialization.Serializable

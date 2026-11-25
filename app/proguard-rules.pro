@@ -23,7 +23,7 @@
 }
 
 # Keep Navigation and Data models
--keep class com.example.scanner.NavigationKeys** { *; }
--keep class com.example.scanner.scanner.ScanResult** { *; }
--keep class com.example.scanner.scanner.ParsedPayload** { *; }
--keep class com.example.scanner.scanner.ScanRecord** { *; }
+-keep class com.adi100x.scanner.NavigationKeys** { *; }
+-keep class com.adi100x.scanner.scanner.ScanResult** { *; }
+-keep class com.adi100x.scanner.scanner.ParsedPayload** { *; }
+-keep class com.adi100x.scanner.scanner.ScanRecord** { *; }

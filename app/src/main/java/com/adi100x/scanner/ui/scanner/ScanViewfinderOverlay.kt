@@ -1,4 +1,4 @@
-package com.example.scanner.ui.scanner
+package com.adi100x.scanner.ui.scanner
 
 import android.graphics.RectF
 import androidx.compose.animation.AnimatedVisibility
@@ -53,9 +53,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.scanner.scanner.ScanContentType
-import com.example.scanner.theme.PaytmCyan
-import com.example.scanner.theme.PaytmGreen
+import com.adi100x.scanner.scanner.ScanContentType
+import com.adi100x.scanner.theme.PaytmCyan
+import com.adi100x.scanner.theme.PaytmGreen
 import kotlin.math.roundToInt
 
 data class CaptureAnimationState(
