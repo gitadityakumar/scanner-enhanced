@@ -74,10 +74,10 @@ fun PaytmScanOverlay(
         val widthPx = with(density) { maxWidth.toPx() }
         val heightPx = with(density) { maxHeight.toPx() }
 
-        // Matches Xiaomi Scanner's upper-center square framing
-        val idleBoxSizePx = minOf(widthPx * 0.56f, with(density) { 210.dp.toPx() })
+        // Matches Xiaomi Scanner's upper-center square framing, responsive on both phones and tablets
+        val idleBoxSizePx = minOf(widthPx * 0.68f, with(density) { 240.dp.toPx() })
         val idleLeft = (widthPx - idleBoxSizePx) / 2f
-        val idleTop = heightPx * 0.115f
+        val idleTop = maxOf(with(density) { 110.dp.toPx() }, heightPx * 0.22f)
         val idleRect = Rect(
             left = idleLeft,
             top = idleTop,

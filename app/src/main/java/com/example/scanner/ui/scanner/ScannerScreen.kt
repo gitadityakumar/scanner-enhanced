@@ -9,11 +9,13 @@ import android.widget.Toast
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.camera.core.AspectRatio
 import androidx.camera.core.Camera
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.FocusMeteringAction
 import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.Preview
+import androidx.camera.core.resolutionselector.AspectRatioStrategy
 import androidx.camera.core.resolutionselector.ResolutionSelector
 import androidx.camera.core.resolutionselector.ResolutionStrategy
 import androidx.camera.lifecycle.ProcessCameraProvider
@@ -309,18 +311,25 @@ fun ScannerScreen(
                 providerFuture.addListener(
                     {
                         val provider = providerFuture.get()
-                        val preview = Preview.Builder()
-                            .build()
-                            .also { it.surfaceProvider = pv.surfaceProvider }
-
                         val resolutionSelector = ResolutionSelector.Builder()
+                            .setAspectRatioStrategy(
+                                AspectRatioStrategy(
+                                    AspectRatio.RATIO_16_9,
+                                    AspectRatioStrategy.FALLBACK_RULE_AUTO,
+                                ),
+                            )
                             .setResolutionStrategy(
                                 ResolutionStrategy(
-                                    Size(960, 720),
+                                    Size(1280, 720),
                                     ResolutionStrategy.FALLBACK_RULE_CLOSEST_HIGHER_THEN_LOWER,
                                 ),
                             )
                             .build()
+
+                        val preview = Preview.Builder()
+                            .setResolutionSelector(resolutionSelector)
+                            .build()
+                            .also { it.surfaceProvider = pv.surfaceProvider }
 
                         val imageAnalysis = ImageAnalysis.Builder()
                             .setResolutionSelector(resolutionSelector)
@@ -509,7 +518,7 @@ fun ScannerScreen(
             modifier = Modifier
                 .align(Alignment.BottomCenter)
                 .navigationBarsPadding()
-                .padding(bottom = 26.dp),
+                .padding(bottom = 18.dp),
         ) {
             // Torch button
             Box(
@@ -532,7 +541,7 @@ fun ScannerScreen(
                 )
             }
 
-            Spacer(Modifier.height(14.dp))
+            Spacer(Modifier.height(10.dp))
 
             // Active "QR code" mode indicator (matching Xiaomi Scanner blue active icon + text)
             Column(
@@ -552,7 +561,7 @@ fun ScannerScreen(
                 )
             }
 
-            Spacer(Modifier.height(22.dp))
+            Spacer(Modifier.height(16.dp))
 
             // Circular Gallery Picker button
             Box(

@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -99,7 +100,7 @@ fun ScanResultSheet(
                 .fillMaxWidth()
                 .verticalScroll(rememberScrollState())
                 .padding(horizontal = 20.dp)
-                .padding(bottom = 20.dp)
+                .padding(bottom = 28.dp)
                 .navigationBarsPadding(),
         ) {
             // Header badge row
@@ -298,13 +299,14 @@ fun ScanResultSheet(
                                 onClick = { copyToClipboard(context, "Wi-Fi Password", wifiPwd) },
                                 colors = ButtonDefaults.buttonColors(containerColor = XiaomiBlue, contentColor = Color.White),
                                 shape = RoundedCornerShape(14.dp),
+                                contentPadding = androidx.compose.foundation.layout.PaddingValues(horizontal = 10.dp, vertical = 10.dp),
                                 modifier = Modifier
                                     .weight(1f)
-                                    .height(48.dp),
+                                    .heightIn(min = 48.dp),
                             ) {
                                 Icon(Icons.Rounded.ContentCopy, contentDescription = null, modifier = Modifier.size(18.dp))
                                 Spacer(Modifier.width(6.dp))
-                                Text("Copy Password", fontWeight = FontWeight.SemiBold)
+                                Text("Copy Password", fontWeight = FontWeight.SemiBold, maxLines = 1, softWrap = false)
                             }
                         }
                         OutlinedButton(
@@ -313,13 +315,14 @@ fun ScanResultSheet(
                             },
                             border = ButtonDefaults.outlinedButtonBorder(enabled = true).copy(brush = SolidColor(MiuiDivider)),
                             shape = RoundedCornerShape(14.dp),
+                            contentPadding = androidx.compose.foundation.layout.PaddingValues(horizontal = 10.dp, vertical = 10.dp),
                             modifier = Modifier
                                 .weight(1f)
-                                .height(48.dp),
+                                .heightIn(min = 48.dp),
                         ) {
                             Icon(Icons.Rounded.Wifi, contentDescription = null, tint = Color.White, modifier = Modifier.size(18.dp))
                             Spacer(Modifier.width(6.dp))
-                            Text("Wi-Fi Settings", color = Color.White)
+                            Text("Wi-Fi Settings", color = Color.White, maxLines = 1, softWrap = false)
                         }
                     }
                     Spacer(Modifier.height(10.dp))
@@ -406,9 +409,9 @@ fun ScanResultSheet(
                 else -> Unit
             }
 
-            // Secondary row: Copy + Share + Scan Again
+            // Secondary row: Copy + Share + Next (Optimized for all mobile and tablet widths)
             Row(
-                horizontalArrangement = Arrangement.spacedBy(10.dp),
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
                 modifier = Modifier.fillMaxWidth(),
             ) {
                 OutlinedButton(
@@ -419,15 +422,23 @@ fun ScanResultSheet(
                             result.upi?.pa ?: result.rawValue,
                         )
                     },
+                    contentPadding = androidx.compose.foundation.layout.PaddingValues(horizontal = 6.dp, vertical = 8.dp),
                     border = ButtonDefaults.outlinedButtonBorder(enabled = true).copy(brush = SolidColor(MiuiDivider)),
                     shape = RoundedCornerShape(14.dp),
                     modifier = Modifier
                         .weight(1f)
-                        .height(46.dp),
+                        .heightIn(min = 46.dp),
                 ) {
-                    Icon(Icons.Rounded.ContentCopy, contentDescription = null, tint = Color.White, modifier = Modifier.size(17.dp))
-                    Spacer(Modifier.width(6.dp))
-                    Text(if (result.upi != null) "Copy UPI" else "Copy", color = Color.White, fontSize = 14.sp)
+                    Icon(Icons.Rounded.ContentCopy, contentDescription = null, tint = Color.White, modifier = Modifier.size(16.dp))
+                    Spacer(Modifier.width(4.dp))
+                    Text(
+                        text = if (result.upi != null) "Copy UPI" else "Copy",
+                        color = Color.White,
+                        fontSize = 13.sp,
+                        fontWeight = FontWeight.Medium,
+                        maxLines = 1,
+                        softWrap = false,
+                    )
                 }
 
                 OutlinedButton(
@@ -438,26 +449,43 @@ fun ScanResultSheet(
                         }
                         launchSafe(context, Intent.createChooser(send, "Share scanned result"), "Unable to share")
                     },
+                    contentPadding = androidx.compose.foundation.layout.PaddingValues(horizontal = 6.dp, vertical = 8.dp),
                     border = ButtonDefaults.outlinedButtonBorder(enabled = true).copy(brush = SolidColor(MiuiDivider)),
                     shape = RoundedCornerShape(14.dp),
                     modifier = Modifier
                         .weight(1f)
-                        .height(46.dp),
+                        .heightIn(min = 46.dp),
                 ) {
-                    Icon(Icons.Rounded.Share, contentDescription = null, tint = Color.White, modifier = Modifier.size(17.dp))
-                    Spacer(Modifier.width(6.dp))
-                    Text("Share", color = Color.White, fontSize = 14.sp)
+                    Icon(Icons.Rounded.Share, contentDescription = null, tint = Color.White, modifier = Modifier.size(16.dp))
+                    Spacer(Modifier.width(4.dp))
+                    Text(
+                        text = "Share",
+                        color = Color.White,
+                        fontSize = 13.sp,
+                        fontWeight = FontWeight.Medium,
+                        maxLines = 1,
+                        softWrap = false,
+                    )
                 }
 
                 Button(
                     onClick = onDismiss,
+                    contentPadding = androidx.compose.foundation.layout.PaddingValues(horizontal = 6.dp, vertical = 8.dp),
                     colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF2C2C2E), contentColor = Color.White),
                     shape = RoundedCornerShape(14.dp),
                     modifier = Modifier
                         .weight(1f)
-                        .height(46.dp),
+                        .heightIn(min = 46.dp),
                 ) {
-                    Text("Scan Next", fontSize = 14.sp, fontWeight = FontWeight.Medium)
+                    Icon(Icons.Rounded.QrCodeScanner, contentDescription = null, tint = Color.White, modifier = Modifier.size(16.dp))
+                    Spacer(Modifier.width(4.dp))
+                    Text(
+                        text = "Next",
+                        fontSize = 13.sp,
+                        fontWeight = FontWeight.Medium,
+                        maxLines = 1,
+                        softWrap = false,
+                    )
                 }
             }
         }
