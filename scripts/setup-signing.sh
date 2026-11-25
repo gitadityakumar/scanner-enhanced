@@ -77,9 +77,10 @@ if [[ -f "$KEYSTORE_PATH" && "$FORCE" == "true" ]]; then
   rm -f "$KEYSTORE_PATH"
 fi
 
-# Generate passwords into variables without ever echoing them.
+# Generate password into a variable without ever echoing it.
+# PKCS12 keystores require identical store and key passwords for Android Gradle Plugin.
 KEYSTORE_PASSWORD="$(genpass "$PASS_LENGTH")"
-KEY_PASSWORD="$(genpass "$PASS_LENGTH")"
+KEY_PASSWORD="$KEYSTORE_PASSWORD"
 
 export KEYSTORE_PASSWORD KEY_PASSWORD
 
